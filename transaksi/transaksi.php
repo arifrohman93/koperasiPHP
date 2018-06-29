@@ -176,8 +176,16 @@ echo ' <tbody id="fbody">';$no=1;
             <td align="center">
 			<a class="btn btn-primary btn-xs" href="index.php?pilih=2.1&aksi=simpanananggota&kode_anggota=<?php echo $data['kode_anggota'];?>"><i class="glyphicon glyphicon-check"></i> Simpan</a>
 			<a class="btn btn-success btn-xs" href="index.php?pilih=2.1&aksi=pinjamangsur&kode_anggota=<?php echo $data['kode_anggota'];?>"><i class="glyphicon glyphicon-edit"></i> Pinjam | <i class="glyphicon glyphicon-share"></i> Angsur</a> 
-			<a class="btn btn-danger btn-xs" href="index.php?pilih=4.4&aksi=anggota&kode_anggota=<?php echo $data['kode_anggota'];?>"><i class="glyphicon glyphicon-question-sign"></i> Pengajuan</a>
-    
+			<?php 
+                      if($_SESSION['level']=='admin')
+                      {
+                        
+                      }
+                      else if($_SESSION['level']=='operator')
+                      { ?>
+                         <a class="btn btn-danger btn-xs" href="index.php?pilih=4.4&aksi=operator&kode_anggota=<?php echo $data['kode_anggota'];?>"><i class="glyphicon glyphicon-question-sign"></i> Pengajuan</a>
+                  <?php    }
+                 ?>
 			</td>
         </tr>  
 <?php
@@ -286,7 +294,8 @@ echo ' <tbody id="fbody">';$no=1;
 <div class="form-group">
     <label>Jenis Pinjaman</label>
     <select name="kode_jenis_pinjam" class="form-control" id="kode_jenis_pinjam" onChange="show3(this.value)" class="required" title="Jenis Pinjaman harus diisi">
-               <?php
+               <option value="">=pilih=</option>
+			   <?php
                 $q=mysqli_query($koneksi,"SELECT * FROM t_jenis_pinjam");
                 while($a=mysqli_fetch_array($q)){
                 ?>
@@ -430,12 +439,13 @@ else if($aksi=='pinjamangsur')
      <div class="form-panel">
         <h4 class="mb"><span class='glyphicon glyphicon-briefcase'></span> Transaksi <?php echo $anggota['nama_anggota'];?>
         <?php
-        
-                        $am=mysqli_query($koneksi,"select*from t_pinjam where kode_anggota='$kode'");
+			           $am=mysqli_query($koneksi,"select*from t_pinjam where kode_anggota='$kode'");
                         $jum=mysqli_num_rows($am);
                     echo'<kbd style="background-color:#d9534f;">'.$jum.'</kbd>';?>
         <span style="float:right;">
-        <?php $df=mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM t_pinjam where kode_anggota='$kode' order by kode_pinjam desc"));$op=mysqli_num_rows($df);
+        <?php 
+			echo '<a href=index.php?pilih=2.1&aksi=pinjam&kode_anggota='.$kode.' class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';
+		/*$df=mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM t_pinjam where kode_anggota='$kode' order by kode_pinjam desc"));$op=mysqli_num_rows($df);
         if($df['status']=='belum lunas')
         {
         	echo '<a href="href=index.php?pilih=2.1&aksi=pinjam" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';
@@ -447,8 +457,9 @@ else if($aksi=='pinjamangsur')
         else if($op<=0)
         {
         	echo '<a href=index.php?pilih=2.1&aksi=pinjam&kode_anggota='.$kode.' class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';
-        }?>
- 
+        }*/
+		?>
+		
                     </span></h4>
 <form class="form-inline" role="form">
   <table class="table table-bordered table-striped table-condensed">

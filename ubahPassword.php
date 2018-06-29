@@ -17,6 +17,7 @@ if ($currentPassword == $a["password"]) {
 ?>
 	<script>
 		alert("Current Password is not correct");
+		window.location="index.php";
 	</script>
 <?php
 }
