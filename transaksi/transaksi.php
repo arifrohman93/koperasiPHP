@@ -444,8 +444,8 @@ else if($aksi=='pinjamangsur')
                     echo'<kbd style="background-color:#d9534f;">'.$jum.'</kbd>';?>
         <span style="float:right;">
         <?php 
-			echo '<a href=index.php?pilih=2.1&aksi=pinjam&kode_anggota='.$kode.' class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';
-		/*$df=mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM t_pinjam where kode_anggota='$kode' order by kode_pinjam desc"));$op=mysqli_num_rows($df);
+			/*echo '<a href=index.php?pilih=2.1&aksi=pinjam&kode_anggota='.$kode.' class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';*/
+		$df=mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM t_pinjam where kode_anggota='$kode' order by kode_pinjam desc"));$op=mysqli_num_rows($df);
         if($df['status']=='belum lunas')
         {
         	echo '<a href="href=index.php?pilih=2.1&aksi=pinjam" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';
@@ -457,7 +457,7 @@ else if($aksi=='pinjamangsur')
         else if($op<=0)
         {
         	echo '<a href=index.php?pilih=2.1&aksi=pinjam&kode_anggota='.$kode.' class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Pinjaman</a> ';
-        }*/
+        }
 		?>
 		
                     </span></h4>
