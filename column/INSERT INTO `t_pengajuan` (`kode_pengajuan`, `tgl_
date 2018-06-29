@@ -1,0 +1,7 @@
+INSERT INTO `t_pengajuan` (`kode_pengajuan`, `tgl_pengajuan`, `kode_anggota`, `kode_jenis_pinjam`, `besar_pinjam`, `tgl_acc`, `status`) VALUES
+(1, '2017-02-19', 'A0002', 'P0001', 1000000, '0000-00-00', 'ditolak'),
+(2, '2017-02-19', 'A0001', 'P0001', 100000, '0000-00-00', 'ditolak');
+INSERT INTO `t_pengambilan` (`kode_ambil`, `kode_anggota`, `kode_tabungan`, `besar_ambil`, `tgl_ambil`) VALUES
+(9, 'A0001', 31, 50000, '2017-02-17'),
+(10, 'A0002', 32, 1000, '2017-02-17'),
+(11, 'A0002', 32, 50000, '2017-02-18');
