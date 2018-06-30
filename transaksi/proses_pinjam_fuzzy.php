@@ -32,6 +32,7 @@ $y_min=isset($_GET['y_min'])?$_GET['y_min']:1000000;
 $y_max=isset($_GET['y_max'])?$_GET['y_max']:25000000;
 $z_min=isset($_GET['z_min'])?$_GET['z_min']:100000;
 $z_max=isset($_GET['z_max'])?$_GET['z_max']:5000000;
+
 $x=$pengambilan;			//pengeluaran saat ini
 $y=$pendapatan;				//persediaan saat ini
 $z=$besar_pinjaman;			//besar pinjaman
@@ -42,11 +43,11 @@ $z=$besar_pinjaman;			//besar pinjaman
 $ux_rendah=($x_max-$x)/($x_max-$x_min);
 $ux_tinggi=($x-$x_min)/($x_max-$x_min);
 
-//simpanan
+//persediaan
 $uy_rendah=($y_max-$y)/($y_max-$y_min);
 $uy_tinggi=($y-$y_min)/($y_max-$y_min);
 
-//pengajuan
+//pengajuan pinjaman
 $uz_sedikit=($z_max-$z)/($z_max-$z_min);
 $uz_banyak=($z-$z_min)/($z_max-$z_min);
 
@@ -78,7 +79,7 @@ $pinjamanTersedia = ceil($zAkhir);
 if($pinjamanTersedia < $z)
 { ?>
 		<script>
-			alert("Maaf Keuangan masih tidak normal silahkan lakukan transasi bebehari kedepan");
+			alert("Maaf Keuangan masih tidak normal silahkan lakukan transaksi beberapa hari kedepan");
 			window.location="../index.php?pilih=2.1&aksi=pinjamangsur&kode_anggota=<?php echo $kode_anggota;?>";
 		</script>
 	<?php }
