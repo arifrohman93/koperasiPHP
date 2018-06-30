@@ -278,7 +278,7 @@ echo ' <tbody id="fbody">';$no=1;
      <div class="col-lg-12">
         <div class="form-panel" style="width:50%;">
             <h4 class="mb"><span class='glyphicon glyphicon-briefcase'></span> Transaksi Pinjaman</h4>
-<form action="transaksi/proses_pinjam.php" method="GET" id="form" name="frmAdd">
+<form action="transaksi/proses_pinjam_fuzzy.php" method="GET" id="form" name="frmAdd">
 <div class="form-group">
     <label>Kode Anggota</label>
     <input type="text" class="form-control" name="kode_anggota" size="34" title="Kode Anggota harus diisi" readonly="" value="<?php echo $data2['kode_anggota'];?>">
