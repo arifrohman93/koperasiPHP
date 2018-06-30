@@ -225,8 +225,15 @@ echo ' <tbody id="fbody">';$no=1;
         <div class="form-group">
             <label>Jenis Simpanan</label>
             <select name="kode_jenis_simpan" class="form-control" id="kode_jenis_simpan" onChange="show(this.value)" class="required" title="Jenis Simpan harus diisi">
-                <option value="<?php echo $kode_jenis;?>"><?php echo $nama['nama_simpanan'];?></option>
-      
+                <option value="">=pilih=</option>
+				<?php
+					$q=mysqli_query($koneksi,"SELECT * FROM t_jenis_simpan");
+					while($a=mysqli_fetch_array($q)){
+					?>
+						<option value="<?php echo $a['kode_jenis_simpan'];?>"><?php echo $a['nama_simpanan'];?></option>
+					<?php
+					}
+                ?>
             </select>
         </div>
         <script>
@@ -239,18 +246,18 @@ echo ' <tbody id="fbody">';$no=1;
 		  return true;
 		  }
 		</script>
-		<?php if($nama['nama_simpanan']=='sukarela')
+		<?php if($a['nama_simpanan']=='pokok' || $a['nama_simpanan']=='wajib')
 		{
 		?>
         <div class="form-group">
             <label>Besar Simpanan</label>
-            <input type="text" onkeypress="return isNumberKey(event);" value="<?php echo $nama['besar_simpanan'];?>" name="besar_simpanan" class="form-control" id="besar_simpanan" size="54"/>
+            <input type="text" onkeypress="return isNumberKey(event);" value="<?php echo $a['besar_simpanan'];?>" name="besar_simpanan" class="form-control" id="besar_simpanan" size="54" readonly/>
         </div>
         <?php } 
         else { ?>
         <div class="form-group">
             <label>Besar Simpanan</label>
-            <input type="text" onkeypress="return isNumberKey(event);"  value="<?php echo $nama['besar_simpanan'];?>" name="besar_simpanan" class="form-control" id="besar_simpanan" size="54" readonly/>
+            <input type="text" onkeypress="return isNumberKey(event);"  value="<?php echo $a['besar_simpanan'];?>" name="besar_simpanan" class="form-control" id="besar_simpanan" size="54" />
         </div>
         <?php } ?>
         <div class="form-group">
@@ -532,9 +539,11 @@ elseif($aksi=='simpanananggota'){
 <?php
 session_start();
 if($_SESSION['level']=='admin'){ 
+	echo '<a class="btn btn-success" href="index.php?pilih=2.1&aksi=simpan&kode_anggota='.$kode.'"><i class="glyphicon glyphicon-link"></i> Tambah</a> ';
+	
 	$jenis=mysqli_query($koneksi,"SELECT*FROM t_jenis_simpan");
 	$no=1;
-	while($verida=mysqli_fetch_array($jenis))
+	/*while($verida=mysqli_fetch_array($jenis))
 	{ 
 	 if($verida['nama_simpanan']=='wajib')
 	 {
@@ -559,7 +568,7 @@ if($_SESSION['level']=='admin'){
 		echo '<a class="btn btn-success" href="index.php?pilih=2.1&aksi=simpan&kode_anggota='.$kode.'&kode_jenis_simpan='.$verida['kode_jenis_simpan'].'"><i class="glyphicon glyphicon-link"></i> Sukarela</a> ';
 	 } 
 	 $no++;
-	}
+	}*/
 }
 ?>
 <a href="laporan/print_show_simpanan.php?kode=<?php echo $ang['kode_anggota'];?>" target="_blank" class="btn btn-primary"><span class='glyphicon glyphicon-print'></span> Print</a> 
