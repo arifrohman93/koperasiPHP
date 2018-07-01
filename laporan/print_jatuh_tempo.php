@@ -13,7 +13,7 @@ $pdf->MultiCell(19.5,0.5,'',0,'L');
 $pdf->SetX(4);   
 $pdf->SetFont('Arial','B',10);
 $pdf->SetX(4);
-$pdf->Image('../logo_kop.GIF',2,1.3,2,1.6);
+$pdf->Image('kop.GIF',2,1.3,2,1.6);
 $pdf->SetX(4); 
 $pdf->MultiCell(19.5,0.5,'  " KOPERASI HEMAT PANGKAL KAYA "',0,'L');
 $pdf->SetX(4);

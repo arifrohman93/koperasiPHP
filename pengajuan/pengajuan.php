@@ -77,7 +77,7 @@ include "config/koneksi.php";
       <?php if($data['status']=='menunggu')
       {?>
         <td align="center">
-        <a class="btn btn-success btn-xs" href="pengajuan/proses_pengajuan.php?proses=terima&kode_anggota=<?php echo $isi;?>&kode_pengajuan=<?php echo $data['kode_pengajuan'];?>"><i class="glyphicon glyphicon-ok-circle"></i> Terima</a>
+        <a class="btn btn-success btn-xs" href="pengajuan/proses_pengajuan.php?proses=terima&kode_anggota=<?php echo $isi;?>&kode_pengajuan=<?php echo $data['kode_pengajuan'];?>"><i class="glyphicon glyphicon-ok-circle"></i> Proses</a>
         <a class="btn btn-danger btn-xs" href="pengajuan/proses_pengajuan.php?proses=tolak&kode_anggota=<?php echo $isi;?>&kode_pengajuan=<?php echo $data['kode_pengajuan'];?>"><i class="glyphicon glyphicon-remove-circle"></i> Tolak</a>
       </td>
         <?php } ?>
@@ -90,7 +90,7 @@ include "config/koneksi.php";
        <?php if($data['status']=='ditolak')
       {?>
         <td align="center">
-        <a class="btn btn-success btn-xs" href="pengajuan/proses_pengajuan.php?proses=terima&kode_anggota=<?php echo $isi;?>&kode_pengajuan=<?php echo $data['kode_pengajuan'];?>"><i class="glyphicon glyphicon-ok-circle"></i> Terima</a>
+        <a class="btn btn-success btn-xs" href="pengajuan/proses_pengajuan.php?proses=terima&kode_anggota=<?php echo $isi;?>&kode_pengajuan=<?php echo $data['kode_pengajuan'];?>"><i class="glyphicon glyphicon-ok-circle"></i> Proses</a>
         <a class="btn btn-danger btn-xs" href="pengajuan/proses_pengajuan.php?proses=hapus&kode_anggota=<?php echo $isi;?>&kode_pengajuan=<?php echo $data['kode_pengajuan'];?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
         </td>
         <?php } ?>
