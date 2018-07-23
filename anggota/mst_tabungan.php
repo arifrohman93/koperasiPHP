@@ -79,7 +79,7 @@ while($dataku=mysqli_fetch_array($ghu))
 		
     </thead><tbody id="fbody">
 <?php
-	$query=mysqli_query($koneksi,"SELECT * FROM t_tabungan order by kode_tabungan desc");
+	$query=mysqli_query($koneksi,"SELECT * FROM t_tabungan order by kode_tabungan asc");
 	$no=1;
 	while($data=mysqli_fetch_array($query)){
 ?>
