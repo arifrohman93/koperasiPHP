@@ -30,11 +30,11 @@
     <thead>
 		<tr class="info">
              <th><a href="#">No</a></th>
-             <th><a href="#">Kode User</a></th>
+             <!--<th><a href="#">Kode User</a></th>-->
              <th><a href="#">Username</a></th>
       		 <th><a href="#">Nama</a></th>
              <th><a href="#">Level</a></th>
-             <th ><a >Aksi</a></th>
+             <th width='15%'><a >Aksi</a></th>
        	</tr>
 		
     </thead><tbody>
@@ -46,7 +46,9 @@
     
     	<tr>
 			<td><?php echo $no;?></td>
-            <td><?php echo $data['kode_user'];?></td>
+            <!--<td>
+			<?php //echo $data['kode_user'];?>
+			</td>-->
 			<td><?php echo $data['username'];?></td>
 			<td><?php echo $data['nama'];?></td>
       <td><?php echo $data['level'];?></td>
@@ -81,8 +83,9 @@
    <h4 class="mb"><span class='glyphicon glyphicon-briefcase'></span> Tambah Data User</h4>
 <form action="setting/proses_user.php?pros=tambah" method="post" id="form">
 <div class="form-group">
- <label>Kode User</label>
- <input type="text" class="form-control" name="kode_user" size="54" value="<?php echo nomer($koneksi,"U","kode_user","t_user");?>" readonly title="Kode harus diisi"/>
+ <!--<label>Kode User</label>
+ <input type="text" class="form-control" name="kode_user" size="54" value="<?php echo nomer($koneksi,"U","kode_user","t_user");?>" readonly title="Kode harus diisi"/>-->
+ <input type="hidden" name="kode_user" size="54" value="<?php echo nomer($koneksi,"U","kode_user","t_user");?>"/>
 </div>
 <div class="form-group">
  <label>Kode Anggota</label>
@@ -127,9 +130,10 @@
    <h4 class="mb"><span class='glyphicon glyphicon-briefcase'></span> Edit Data User</h4>
 <form action="setting/proses_user.php?pros=ubah" method="post" id="form">
 <div class="form-group">
- <label>Kode User</label>
+ <!--<label>Kode User</label>
  <input type="text" class="form-control" name="kode_user" size="54" value="<?php echo $data2['kode_user'];?>" readonly/>
-</div>
+</div>-->
+<input type="hidden" name="kode_user" size="54" value="<?php echo $data2['kode_user'];?>"/>
 <div class="form-group">
 <label>Kode Anggota</label>
 <input name="kode_petugas" class="form-control" type="text" value="<?php echo $data2['kode_petugas'];?>">
