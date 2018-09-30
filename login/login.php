@@ -49,7 +49,7 @@
 					}elseif($aksi=='tambah'){
 				?>
 				  <div class="login-form">
-				   <h4> Tambah Data User</h4>
+				   <h4 class="login-logo"> Tambah Data User</h4>
 					<form action="proses_login.php" method="post" id="form">
 					 <input type="hidden" name="isLogin" value="N"/>
 					<div class="form-group">
@@ -57,12 +57,6 @@
 					</div>
 					<div class="form-group">
 					<input name="nama" placeholder="Nama" class="input-field" type="text" class="required">
-					</div>
-					<div class="form-group">
-					 <input type="text" placeholder="Username" class="input-field" name="username" size="54" class="required" title="Nama harus diisi">
-					</div>
-					<div class="form-group">
-					 <input type="password" placeholder="Password" class="input-field" name="password" size="54" class="required" title="Telepon harus diisi"/>
 					</div>
 					<div class="form-group">
 					 <input type="hidden" class="input-field" name="tgl_entri" size="54" value="<?php echo date("Y-m-d");?>" readonly />
